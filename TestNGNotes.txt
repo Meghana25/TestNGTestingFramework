@@ -1,0 +1,77 @@
+1.How to run tests with TestNG ? - You need to have @Test Annotation followed by methods
+2.How to run these tests using TestNG.xml
+3.You can run multiple tests in single fine using TestNG
+4.testng.xml hierarchy : TestSuite -> TestFolder(Module) -> Testcases
+5.Using TestNG , you can modularize the testcases based upon the functionality and trigger them accordingly
+6.Using TestNG, you can also get a control on running specific methods from the test cases
+7. we can include and exclude test case using regular expression like <exclude name="mobile.*"/>
+8. TestNG Annotations:
+	BeforeSuite
+	BeforeTest
+	BeforeClass
+	BeforeMethod
+	Test
+	AfterMethod
+	AfterClass
+	AfterTest
+	AfterSuite	
+
+9. What is difference between BeforeTest and BestMethod?
+BeforeTest -> It depends on testNG xml file based on the test folder scope
+BeforeMethod -> specific to class file,and executes before each and every method	
+
+10. In testNG, order of execution with same annotations happends in alphabetical order
+	
+11. Annotations helper attributes
+	@Test(groups={Smoke})
+	@Test(dependsOnMethods={"classname",classname1"})
+	@Test(enabled=false)
+	@Test(timeOut=4000)
+	
+12. Parameterizing
+  1. Drive the data from xml file using below
+	@Paramaters({"URL","key"})
+	@Test
+	
+	
+  2. using	DataProvider Annotation
+  
+	  @Test(dataProvider="getData")
+	  @DataProvider
+		public Object[][] getData()
+		{
+			//combinations(3) of username, password(2)
+			//1st - good credit history
+			//2nd - no credit history
+			//3rd - fradulent credit history
+			Object[][] data = new Object[3][2]; //Multidimensions object Array
+			//1st - columns in the row are nothing but values for particular combination(row)
+			data[0][0] ="firstsetusername";
+			data[0][1] ="firstsetpassword";
+			//2nd
+			data[1][0]="secondsetusername";
+			data[1][1]="secondsetpassword";
+			//3rd
+			data[2][0]="thirdsetusername";
+			data[2][1]="thirdsetpassword";
+			return data;
+		}
+* Global environment variables can be incorporated through selenium
+* Parameterizing with multiple data sets by running tests with multiple combination
+
+3. TestNG listeners Interface - listens to testcases
+org.testng.ITestResult
+
+This class describes the result of a test
+
+
+13. PArallel execution
+<suite name="Loan Department" parallel="tests" thread-count="2">
+  <test name="personal loan" parallel="classes" thread-count="2">
+
+
+	
+
+
+
+	
